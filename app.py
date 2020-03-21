@@ -1,6 +1,6 @@
 from flask import Flask, render_template
-import flaskr.routes.index
-import flaskr.routes.login
+from routes.index import index
+from routes.login import index
 
 application = Flask(__name__,
             static_url_path='', 
@@ -8,8 +8,8 @@ application = Flask(__name__,
             template_folder='templates')
 
 
-app.register_blueprint(index)
-app.register_blueprint(login)
+application.register_blueprint(index)
+application.register_blueprint(login)
 
 
 if __name__ == "__main__":
