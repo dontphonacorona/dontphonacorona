@@ -1,17 +1,15 @@
 from flask import Flask, render_template
+import flaskr.routes.index
+import flaskr.routes.login
+
 application = Flask(__name__,
             static_url_path='', 
             static_folder='static',
             template_folder='templates')
 
 
-@application.route("/")
-def index():
-  return render_template('index.html')
-  
-@application.route("/login")
-def login():
-  return render_template('login.html')
+app.register_blueprint(index)
+app.register_blueprint(login)
 
 
 if __name__ == "__main__":
